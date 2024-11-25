@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Follows Cursor</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            /* Prevent scrollbars */
+            height: 100vh;
+            /* Full height */
+            background-color: #f0f0f0;
+            /* Light background */
+        }
+
+        #circle {
+            position: absolute;
+            width: 50px;
+            /* Circle diameter */
+            height: 50px;
+            border-radius: 50%;
+            /* Make it a circle */
+            background-color: red;
+            /* Circle color */
+            pointer-events: none;
+            /* Prevent circle from blocking mouse events */
+            transition: transform 0.1s;
+            /* Smooth movement */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="circle"></div>
+
+    <script>
+        const circle = document.getElementById('circle');
+
+        // Event listener for mouse movement
+        document.addEventListener('mousemove', (event) => {
+            // Update the position of the circle
+            circle.style.transform = `translate(${event.clientX - 25}px, ${event.clientY - 25}px)`;
+        });
+    </script>
+</body>
+
+</html>
